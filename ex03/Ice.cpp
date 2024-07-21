@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 23:39:08 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/21 03:52:53 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/21 22:49:54 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Ice&	Ice::operator=( const Ice& rhs )
 {
 	std::cout << "Ice copy assginment operator has been called!" << std::endl;
 
-	return (*this); // since the type is always "ice"
+	return (*this);
 }
 
 AMateria*	Ice::clone( void ) const

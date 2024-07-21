@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 00:12:19 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/21 05:48:06 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/21 22:51:05 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ public :
 
 private :
 
-	AMateria*	_inventory[4];
 	std::string	_name;
+	AMateria*	_inventory[4];
 	AMateria*	_garbage_materias[4];
 };
 
