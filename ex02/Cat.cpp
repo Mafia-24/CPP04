@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 06:30:31 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/20 08:01:03 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/20 21:38:12 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Cat::Cat( const Cat& ref )
 	this->type = ref.type;
 
 	if (ref._brain)
-		this->_brain = new Brain((const Brain&) ref._brain);
+		this->_brain = new Brain((const Brain&) *ref._brain);
 	else
 		this->_brain = NULL;
 
@@ -54,7 +54,7 @@ Cat&	Cat::operator=( const Cat& rhs )
 		delete this->_brain;
 
 	if (rhs._brain)
-		this->_brain = new Brain((const Brain&) rhs._brain);
+		this->_brain = new Brain((const Brain&) *rhs._brain);
 	else
 		this->_brain = NULL;
 

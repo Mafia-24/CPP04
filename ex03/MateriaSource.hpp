@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/20 06:34:56 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/20 21:41:34 by ymafaman         ###   ########.fr       */
+/*   Created: 2024/07/21 03:58:22 by ymafaman          #+#    #+#             */
+/*   Updated: 2024/07/21 04:37:53 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
+#ifndef MATERIA_SOURCE
+# define MATERIA_SOURCE
 
-void f()
-{
-	system("leaks exec");
-}
 
-int main()
-{
-	// atexit(f);
+#include "IMateriaSource.hpp"
+
+class MateriaSource : public IMateriaSource {
+
+public :
 	
-	Animal *animal = new Dog();
-	// Animal *animal = new Dog();
+	MateriaSource( void );
+	MateriaSource( const MateriaSource& ref );
+	
+	~MateriaSource();
 
-	delete animal;
+	MateriaSource&	operator=( const MateriaSource& rhs );
 
-	return 0;
-}
+	void		learnMateria(AMateria* m);
+	AMateria*	createMateria(std::string const & type);
 
+private :
+
+	AMateria* _learned[4];
+};
+
+#endif

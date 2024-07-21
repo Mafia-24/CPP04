@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/20 06:34:56 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/20 21:41:34 by ymafaman         ###   ########.fr       */
+/*   Created: 2024/07/20 23:56:54 by ymafaman          #+#    #+#             */
+/*   Updated: 2024/07/21 03:49:27 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
+#ifndef CURE_HPP
+# define CURE_HPP
 
-void f()
-{
-	system("leaks exec");
-}
+#include "AMateria.hpp"
 
-int main()
-{
-	// atexit(f);
-	
-	Animal *animal = new Dog();
-	// Animal *animal = new Dog();
+class Cure : public AMateria{
 
-	delete animal;
+public :
 
-	return 0;
-}
+	Cure( void );
+	Cure( const Cure& ref );
 
+	~Cure();
+
+	Cure&	operator=( const Cure& rhs );
+
+	AMateria* clone() const;
+
+	void	use(ICharacter& target);
+
+};
+
+
+
+#endif

@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/20 06:34:56 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/20 21:41:34 by ymafaman         ###   ########.fr       */
+/*   Created: 2024/07/20 23:28:31 by ymafaman          #+#    #+#             */
+/*   Updated: 2024/07/21 03:48:50 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
+#include "AMateria.hpp"
 
-void f()
+
+AMateria::AMateria(std::string const & type) : _type(type)
 {
-	system("leaks exec");
+	std::cout << "The AMateria parametrized constructor has been called!" << std::endl;
 }
 
-int main()
+AMateria::~AMateria()
 {
-	// atexit(f);
-	
-	Animal *animal = new Dog();
-	// Animal *animal = new Dog();
-
-	delete animal;
-
-	return 0;
+	std::cout << "The AMateria destructor has been called!" << std::endl;
 }
 
+std::string const & AMateria::getType() const
+{
+	return (this->_type);
+}

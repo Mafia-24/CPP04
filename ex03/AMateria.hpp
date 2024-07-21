@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/20 05:55:13 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/20 21:43:40 by ymafaman         ###   ########.fr       */
+/*   Created: 2024/07/20 22:49:06 by ymafaman          #+#    #+#             */
+/*   Updated: 2024/07/21 03:49:14 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef A_MATERIA_HPP
+# define A_MATERIA_HPP
 
 #include <iostream>
+#include "ICharacter.hpp"
 
-class Animal {
+class AMateria
+{
 
-public :
+public:
 
-	Animal( void );
-	Animal( const Animal& ref );
-	virtual ~Animal();
+	AMateria( std::string const & type );
 
-	Animal& operator=(const Animal& rhs);
+	virtual ~AMateria();
 
-	std::string	getType( void ) const;
+	std::string const & getType() const; //Returns the materia type
 
-	virtual void	makeSound( void ) const = 0;
-	
-protected :
-	
-	std::string type;
+	virtual AMateria* clone( void ) const = 0;
+
+	virtual void use(ICharacter& target) = 0; // made it pure virtual
+
+protected:
+
+	std::string _type;
+	bool		_equiped;
 
 };
-
-
 
 
 

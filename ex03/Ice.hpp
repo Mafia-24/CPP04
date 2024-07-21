@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/20 06:34:56 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/20 21:41:34 by ymafaman         ###   ########.fr       */
+/*   Created: 2024/07/20 23:34:23 by ymafaman          #+#    #+#             */
+/*   Updated: 2024/07/21 03:52:17 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
+#ifndef ICE_HPP
+# define ICE_HPP
 
-void f()
-{
-	system("leaks exec");
-}
+#include "AMateria.hpp"
 
-int main()
-{
-	// atexit(f);
-	
-	Animal *animal = new Dog();
-	// Animal *animal = new Dog();
+class Ice : public AMateria{
 
-	delete animal;
+public :
 
-	return 0;
-}
+	Ice( void );
+	Ice( const Ice& ref );
 
+	~Ice();
+
+	Ice&	operator=( const Ice& rhs );
+
+	AMateria* clone() const;
+
+	void	use(ICharacter& target);
+};
+
+
+
+#endif
