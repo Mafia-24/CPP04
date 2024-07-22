@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 04:37:17 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/22 01:18:45 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/22 05:50:03 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,8 @@ MateriaSource::MateriaSource( const MateriaSource& ref )
 	{
 		if (!ref._learned[i])
 			_learned[i] = NULL;
-		if (ref._learned[i]->getType() == "ice")
-			_learned[i] = new Ice((const Ice&) (*(ref._learned[i])));
-		else if (ref._learned[i]->getType() == "cure")
-			_learned[i] = new Cure((const Cure&) (*(ref._learned[i])));
+		else
+			_learned[i] = ref._learned[i]->clone();
 	}
 
 	// std::cout << "MateriaSource copy constructor has been called!" << std::endl;
@@ -60,10 +58,8 @@ MateriaSource&	MateriaSource::operator=( const MateriaSource& rhs )
 	{
 		if (!rhs._learned[i])
 			_learned[i] = NULL;
-		if (rhs._learned[i]->getType() == "ice")
-			_learned[i] = new Ice((const Ice&) (*(rhs._learned[i])));
-		else if (rhs._learned[i]->getType() == "cure")
-			_learned[i] = new Cure((const Cure&) (*(rhs._learned[i])));
+		else
+			_learned[i] = rhs._learned[i]->clone();
 	}
 
 	return (*this);
@@ -76,7 +72,7 @@ void		MateriaSource::learnMateria(AMateria* m)
 		if (!this->_learned[i])
 		{
 			this->_learned[i] = m;
-			std::cout << "Materia " << m->getType() << " has been learned successfully!" << std::endl;
+			// std::cout << "Materia " << m->getType() << " has been learned successfully!" << std::endl;
 			return ;
 		}
 	}
@@ -90,12 +86,7 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_learned[i] && (this->_learned[i]->getType() == type))
-		{
-			if (type == "ice")
-				return (new Ice((const Ice&) (*(_learned[i]))));
-			else if (type == "cure")
-				return (new Cure((const Cure&) (*(_learned[i]))));
-		}
+			return (_learned[i]->clone());
 	}
 
 	std::cout << "The Materia type : (" << type << ") is unknown for this MateriaSource!" << std::endl;

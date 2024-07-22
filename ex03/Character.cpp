@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 00:23:52 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/22 01:17:44 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/22 05:55:56 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,9 @@ Character::Character( const Character& ref )
 	for (int i = 0; i < 4; i++)
 	{
 		if (ref._inventory[i] == NULL)
-		{
 			this->_inventory[i] = NULL;
-		}
-		else if (ref._inventory[i]->getType() == "ice")
-		{
-			this->_inventory[i] = new Ice((const Ice&) (*(ref._inventory[i])));
-		}
-		else if (ref._inventory[i]->getType() == "cure")
-		{
-			this->_inventory[i] = new Cure((const Cure&) (*(ref._inventory[i])));
-		}
+		else
+			this->_inventory[i] = ref._inventory[i]->clone();
 
 		// setting the _garbage_materias cases to NULL
 		this->_garbage_materias[i] = NULL;
@@ -94,21 +86,13 @@ Character&	Character::operator=( const Character& rhs )
 			delete (this->_inventory[i]);
 
 		if (rhs._inventory[i] == NULL)
-		{
 			this->_inventory[i] = NULL;
-		}
-		if (rhs._inventory[i]->getType() == "ice")
-		{
-			this->_inventory[i] = new Ice((const Ice&) (*(rhs._inventory[i])));
-		}
-		else if (rhs._inventory[i]->getType() == "cure")
-		{
-			this->_inventory[i] = new Cure((const Cure&) (*(rhs._inventory[i])));
-		}
+		else
+			this->_inventory[i] = rhs._inventory[i]->clone();
 	}
 
 	// cleaning the garbage Materias
-	std::cout << this->_name << " is cleaning the garbage Materias! ... ";
+	// std::cout << this->_name << " is cleaning the garbage Materias! ... ";
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -119,8 +103,8 @@ Character&	Character::operator=( const Character& rhs )
 		}
 	}
 
-	std::cout << "Done." << std::endl;
-	return *this;
+	// std::cout << "Done." << std::endl;
+	return (*this);
 }
 
 std::string const & Character::getName() const
@@ -137,7 +121,7 @@ void	Character::equip( AMateria* m ) // NULL as parameter
 		if (!this->_inventory[i])
 		{
 			this->_inventory[i] = m;
-			std::cout << this->_name << " has equiped a Materia successfully!" << std::endl;
+			// std::cout << this->_name << " has equiped a Materia successfully!" << std::endl;
 			break ;
 		}
 	}
@@ -149,7 +133,7 @@ void	Character::equip( AMateria* m ) // NULL as parameter
 	}
 
 	// cleaning the garbage Materias
-	std::cout << this->_name << " is cleaning the garbage Materias! ... ";
+	// std::cout << this->_name << " is cleaning the garbage Materias! ... ";
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -160,14 +144,19 @@ void	Character::equip( AMateria* m ) // NULL as parameter
 		}
 	}
 
-	std::cout << "Done." << std::endl;
+	// std::cout << "Done." << std::endl;
 }
 
 void	Character::unequip( int idx )
 {
-	if ((idx < 0) || (idx > 3) || !this->_inventory[idx])
+	if ((idx < 0) || (idx > 3))
 	{
-		std::cout << "No Materia found in this index!" << std::endl; // cerr
+		std::cout << "This index is out of range!" << std::endl;
+	}
+
+	if (!this->_inventory[idx])
+	{
+		std::cout << "No Materia found in this index!" << std::endl;
 		return ;
 	}
 
@@ -185,7 +174,12 @@ void	Character::unequip( int idx )
 
 void	Character::use( int idx, ICharacter& target )
 {
-	if ((idx < 0) || (idx > 3) || !this->_inventory[idx])
+	if ((idx < 0) || (idx > 3))
+	{
+		std::cout << "This index is out of range!" << std::endl;
+	}
+
+	if (!this->_inventory[idx])
 	{
 		std::cout << "No Materia found in this index!" << std::endl;
 		return ;
