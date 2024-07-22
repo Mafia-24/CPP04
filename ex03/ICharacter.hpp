@@ -6,14 +6,17 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 00:08:40 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/21 01:57:01 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/22 01:10:43 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef I_CHARACTER_HPP
 # define I_CHARACTER_HPP
 
+#include <iostream>
 #include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {
@@ -24,7 +27,7 @@ public:
 
 	virtual std::string const & getName() const = 0;
 
-	virtual void equip(AMateria* m) = 0;
+	virtual void equip( AMateria* m ) = 0;
 
 	virtual void unequip(int idx) = 0;
 

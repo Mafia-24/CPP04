@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 00:12:19 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/21 22:51:05 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/22 01:15:12 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define CHARACTER_HPP
 
 #include "ICharacter.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+
+class ICharacter;
+
 
 class Character : public ICharacter {
 

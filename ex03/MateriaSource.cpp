@@ -6,13 +6,11 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 04:37:17 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/21 23:18:39 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/22 01:18:45 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
 
 MateriaSource::MateriaSource( void )
 {
@@ -21,7 +19,7 @@ MateriaSource::MateriaSource( void )
 		_learned[i] = NULL;
 	}
 
-	std::cout << "MateriaSource default constructor has been called!" << std::endl;
+	// std::cout << "MateriaSource default constructor has been called!" << std::endl;
 }
 
 MateriaSource::MateriaSource( const MateriaSource& ref )
@@ -36,12 +34,12 @@ MateriaSource::MateriaSource( const MateriaSource& ref )
 			_learned[i] = new Cure((const Cure&) (*(ref._learned[i])));
 	}
 
-	std::cout << "MateriaSource copy constructor has been called!" << std::endl;
+	// std::cout << "MateriaSource copy constructor has been called!" << std::endl;
 }
 
 MateriaSource::~MateriaSource()
 {
-	std::cout << "MateriaSource destructor has been called!" << std::endl;
+	// std::cout << "MateriaSource destructor has been called!" << std::endl;
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -51,7 +49,7 @@ MateriaSource::~MateriaSource()
 
 MateriaSource&	MateriaSource::operator=( const MateriaSource& rhs )
 {
-	std::cout << "MateriaSource copy assignment operator has been called!" << std::endl;
+	// std::cout << "MateriaSource copy assignment operator has been called!" << std::endl;
 
 	if (this == &rhs)
 	{
