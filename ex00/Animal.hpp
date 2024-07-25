@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 05:55:13 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/20 06:44:09 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/25 11:55:48 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ public :
 	
 protected :
 	
-	std::string type;
+	Animal( std::string type );
+
+	std::string _type;
 
 };
 

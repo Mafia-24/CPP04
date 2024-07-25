@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 06:53:36 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/20 08:08:49 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/25 13:35:54 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,22 @@ Brain&	Brain::operator=( const Brain& rhs )
 	return (*this);
 }
 
-void	Brain::store_new_idea( std::string new_idea )
+int	Brain::get_offset( void )
 {
-	if (this->_offset == 99)
-	{
-		std::cout << "Brain is full!" << std::endl; // TODO : try to show the name of the animal.
-		return ;
-	}
-	
+	return (this->_offset);
+}
+
+void	Brain::add_idea( std::string new_idea )
+{
 	this->_ideas[this->_offset] = new_idea;
 
 	this->_offset++;
+}
+
+void	Brain::show_idea( int idx )
+{
+	if (this->_ideas[idx] != "")
+		std::cout << this->_ideas[idx] << std::endl;
+	else
+		std::cout << "No ideas stored in this index!" << std::endl;
 }

@@ -6,20 +6,18 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 06:30:31 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/20 06:38:31 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/25 11:56:40 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat( void )
+Cat::Cat( void ) : Animal("Cat")
 {
-	this->type = "Cat";
-
 	std::cout << "Cat's default constructor has been called!" << std::endl;
 }
 
-Cat::Cat( const Cat& ref )
+Cat::Cat( const Cat& ref ) : Animal(ref)
 {
 	this->type = ref.type;
 

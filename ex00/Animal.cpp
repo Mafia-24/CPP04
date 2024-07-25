@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 06:00:41 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/20 06:38:01 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/25 11:54:44 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 
 Animal::Animal( void )
 {
-	this->type = "Unknown creature";
+	this->_type = "Unknown creature";
 
 	std::cout << "Animal's default constructor has been called!" << std::endl;
 }
 
+Animal::Animal( std::string _type ) : _type(type)
+{
+	std::cout << "Animal's parametrized constructor has been called!" << std::endl;
+}
+
 Animal::Animal( const Animal& ref )
 {
-	this->type = ref.type;
+	this->_type = ref._type;
 
 	std::cout << "Animal's copy constructor has been called!" << std::endl;
 }
@@ -40,14 +45,14 @@ Animal& Animal::operator=( const Animal& rhs )
 		return (*this);
 	}
 
-	this->type = rhs.type;
+	this->_type = rhs._type;
 
 	return (*this);	
 }
 
-std::string	Animal::getType( void ) const
+std::string	Animal::get_Type( void ) const
 {
-	return (this->type);
+	return (this->_type);
 }
 
 void	Animal::makeSound( void ) const

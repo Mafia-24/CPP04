@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 00:08:40 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/22 01:10:43 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/25 15:36:38 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class AMateria;
 
 class ICharacter
 {
-	
+
 public:
 
 	virtual ~ICharacter() {}

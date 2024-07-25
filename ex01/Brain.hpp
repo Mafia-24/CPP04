@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 06:49:19 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/20 08:05:41 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/25 13:26:46 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@ public :
 
 	Brain&	operator=( const Brain& rhs );
 
-	void	store_new_idea( std::string new_idea );
+	int	get_offset( void );
+
+	void	add_idea( std::string new_idea );
+
+	void	show_idea( int idx );
 
 private :
 

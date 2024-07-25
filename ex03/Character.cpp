@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 00:23:52 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/22 05:55:56 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/25 15:35:06 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Character::Character( void )
 		this->_garbage_materias[i] = NULL;
 	}
 
-	// std::cout << "Character default constructor has been called!" << std::endl;
+	std::cout << "Character default constructor has been called!" << std::endl;
 }
 
 Character::Character( std::string name )
@@ -35,7 +35,7 @@ Character::Character( std::string name )
 		this->_garbage_materias[i] = NULL;
 	}
 
-	// std::cout << "Character parametrized constructor has been called!" << std::endl;
+	std::cout << "Character parametrized constructor has been called!" << std::endl;
 }
 
 Character::Character( const Character& ref )
@@ -53,12 +53,12 @@ Character::Character( const Character& ref )
 		this->_garbage_materias[i] = NULL;
 	}
 
-	// std::cout << "Character copy constructor has been called!" << std::endl;
+	std::cout << "Character copy constructor has been called!" << std::endl;
 }
 
 Character::~Character()
 {
-	// std::cout << "Charachter destructor has been called!" << std::endl;
+	std::cout << "Charachter destructor has been called!" << std::endl;
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -71,7 +71,7 @@ Character::~Character()
 
 Character&	Character::operator=( const Character& rhs )
 {
-	// std::cout << "Character copy assignment operator has been called!" << std::endl;
+	std::cout << "Character copy assignment operator has been called!" << std::endl;
 
 	if (this == &rhs)
 	{
@@ -92,7 +92,7 @@ Character&	Character::operator=( const Character& rhs )
 	}
 
 	// cleaning the garbage Materias
-	// std::cout << this->_name << " is cleaning the garbage Materias! ... ";
+	std::cout << this->_name << " is cleaning the garbage Materias! ... ";
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -103,7 +103,7 @@ Character&	Character::operator=( const Character& rhs )
 		}
 	}
 
-	// std::cout << "Done." << std::endl;
+	std::cout << "Done." << std::endl;
 	return (*this);
 }
 
@@ -112,16 +112,19 @@ std::string const & Character::getName() const
 	return (this->_name);
 }
 
-void	Character::equip( AMateria* m ) // NULL as parameter
+void	Character::equip( AMateria* m )
 {
 	int i;
+
+	if (!m)
+		return ;
 
 	for (i = 0; i < 4; i++)
 	{
 		if (!this->_inventory[i])
 		{
 			this->_inventory[i] = m;
-			// std::cout << this->_name << " has equiped a Materia successfully!" << std::endl;
+			std::cout << this->_name << " has equiped a Materia successfully!" << std::endl;
 			break ;
 		}
 	}
@@ -133,7 +136,7 @@ void	Character::equip( AMateria* m ) // NULL as parameter
 	}
 
 	// cleaning the garbage Materias
-	// std::cout << this->_name << " is cleaning the garbage Materias! ... ";
+	std::cout << this->_name << " is cleaning the garbage Materias! ... ";
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -144,7 +147,7 @@ void	Character::equip( AMateria* m ) // NULL as parameter
 		}
 	}
 
-	// std::cout << "Done." << std::endl;
+	std::cout << "Done." << std::endl;
 }
 
 void	Character::unequip( int idx )

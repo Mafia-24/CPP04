@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 06:29:51 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/20 07:45:39 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/25 12:28:33 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ public :
 	Cat& operator=( const Cat& rhs );
 
 	void	makeSound( void ) const;
+
+	void	store_new_idea( std::string new_idea );
+
+	void	list_idea( int idx );
 
 private :
 
