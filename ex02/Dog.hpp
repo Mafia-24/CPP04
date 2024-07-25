@@ -6,17 +6,17 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 06:08:34 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/20 07:44:53 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/25 13:53:32 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal{
+class Dog : public AAnimal{
 
 public :
 

@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 06:34:56 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/20 21:41:34 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/25 13:59:15 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 
 void f()
 {
-	system("leaks exec");
+	system("leaks abstract");
 }
 
 int main()
 {
-	// atexit(f);
+	atexit(f);
 	
-	Animal *animal = new Dog();
-	// Animal *animal = new Dog();
+	AAnimal *animal = new Dog();
+
+	animal->makeSound();
 
 	delete animal;
 

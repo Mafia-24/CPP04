@@ -6,17 +6,17 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 06:29:51 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/20 07:45:39 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/25 13:53:23 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 # define CAT_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal{
+class Cat : public AAnimal{
 
 public :
 

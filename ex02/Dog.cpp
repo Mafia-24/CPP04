@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 06:21:14 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/07/20 21:37:00 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/07/25 13:58:22 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Dog::~Dog()
 	std::cout << "Dog's destructor has been called!" << std::endl;
 
 	if (this->_brain)
-		delete this->_brain; // try to print the address after deleting to see if null is set or not!
+		delete this->_brain;
 }
 
 Dog&	Dog::operator=( const Dog& rhs )
